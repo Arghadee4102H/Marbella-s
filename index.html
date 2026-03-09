@@ -1,640 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marbella's Café | Home-grown, Glass Enclosed, Quaint & Cozy</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* --- Color Palette & Variables --- */
-        :root {
-            --primary: #3B2A26;      /* Deep Coffee Brown */
-            --secondary: #F5EBDD;    /* Cream Beige */
-            --accent: #C89B3C;       /* Warm Gold */
-            --bg-color: #FAF8F4;     /* Soft Off-White */
-            --text: #222222;         /* Dark Charcoal */
-            
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Poppins', sans-serif;
-            --font-price: 'Montserrat', sans-serif;
-        }
+<title>Marbella's Café | Kolkata</title>
 
-        /* --- Global Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+<meta name="description" content="Marbella's is a cozy European café in Kolkata serving pancakes, burgers, coffee and global comfort food.">
 
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            color: var(--primary);
-            font-weight: 600;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+<link rel="stylesheet" href="style.css">
 
-        section {
-            padding: 5rem 10%;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
-            font-family: var(--font-body);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            border: none;
-            font-weight: 500;
-        }
-
-        .btn-accent {
-            background-color: var(--accent);
-            color: white;
-        }
-        .btn-accent:hover {
-            background-color: #b58830;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #2a1e1b;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            margin: 10px auto 0;
-        }
-
-        /* --- Navbar --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(59, 42, 38, 0.95);
-            color: white;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--accent);
-        }
-        .nav-links a {
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            color: white;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* --- 1. Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(59, 42, 38, 0.7), rgba(59, 42, 38, 0.5)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 5%;
-        }
-        .hero h1 {
-            color: white;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .rating-badge {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-        }
-        .rating-badge i { color: #fbbc04; }
-
-        /* --- 2. About Section --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #444;
-        }
-        .about-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 10px 10px 0px var(--secondary);
-        }
-
-        /* --- 3. Menu Section --- */
-        .menu-section {
-            background-color: var(--secondary);
-        }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        .menu-category h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #d4c6b3;
-            padding-bottom: 0.5rem;
-        }
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
-        .menu-item h4 {
-            font-family: var(--font-body);
-            color: var(--text);
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
-        .menu-item .price {
-            font-family: var(--font-price);
-            font-weight: 600;
-            color: var(--primary);
-        }
-        .menu-btn-container {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* --- 4. Why People Love Us --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .feature-item i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        .feature-item p {
-            font-weight: 500;
-            color: var(--primary);
-        }
-        .review-quote {
-            background: white;
-            padding: 2rem;
-            border-left: 5px solid var(--accent);
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #555;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* --- 5. Order Online --- */
-        .order-section {
-            background-color: var(--secondary);
-        }
-        .order-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .order-card {
-            background: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .order-card:hover {
-            transform: translateY(-5px);
-        }
-        .order-card h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-body);
-        }
-        .zomato-brand { color: #CB202D; }
-        .swiggy-brand { color: #FC8019; }
-
-        /* --- 6 & 7. Reserve & Hours --- */
-        .reserve-hours-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            background: white;
-            padding: 4rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: var(--font-body);
-            background: var(--bg-color);
-        }
-        .hours-box {
-            background: var(--primary);
-            color: white;
-            padding: 3rem;
-            border-radius: 10px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .hours-box h3 { color: var(--accent); margin-bottom: 1rem; }
-        .hours-box p { font-size: 1.2rem; }
-
-        /* --- 8. Location & Contact --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .contact-info i {
-            color: var(--accent);
-            width: 30px;
-        }
-        .contact-info p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        /* --- 9. Reviews Section --- */
-        .reviews-section {
-            background-color: var(--secondary);
-        }
-        .review-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .r-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .r-card h4 {
-            font-family: var(--font-body);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        .r-card .stars {
-            color: #fbbc04;
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- 10. Footer --- */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 4rem 10% 2rem;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .footer-logo {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-style: italic;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        .footer-links h4, .footer-contact h4 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 0.5rem; }
-        .footer-links a:hover { color: var(--accent); }
-        .social-icons {
-            margin-top: 1rem;
-        }
-        .social-icons a {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: white;
-            transition: color 0.3s;
-        }
-        .social-icons a:hover { color: var(--accent); }
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .about-grid, .reserve-hours-grid, .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; /* Add JS hamburger menu for real implementation */ }
-            section { padding: 4rem 5%; }
-            .reserve-hours-grid { padding: 2rem; }
-        }
-    </style>
 </head>
+
 <body>
 
-    <!-- Header / Navbar -->
-    <nav>
-        <div class="logo">Marbella's</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#order">Order</a>
-            <a href="#reserve">Reserve</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<!-- NAVBAR -->
 
-    <!-- 1. Hero Section -->
-    <section id="home" class="hero">
-        <h1>Marbella's Café</h1>
-        <p>"Home-grown, Glass Enclosed, Quaint and Cozy Café."</p>
-        <p style="font-size: 1rem; font-weight: 300; margin-top: -1rem;">Serving fuss-free soul food, delicious beverages and European style café dishes in the heart of Kolkata.</p>
-        
-        <div class="hero-buttons">
-            <a href="#reserve" class="btn btn-accent">Reserve a Table</a>
-            <a href="#order" class="btn btn-primary">Order Online</a>
-            <a href="#menu" class="btn btn-outline">View Menu</a>
-        </div>
-        
-        <div class="rating-badge">
-            <i class="fa-solid fa-star"></i> 4.2 Rating (3,073 Google Reviews)
-        </div>
-    </section>
+<header class="navbar">
 
-    <!-- 2. About Marbella's -->
-    <section id="about">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2 class="section-title" style="text-align: left;">About Us</h2>
-                <p>Marbella's is a cozy European inspired café located in Hindustan Park, Kolkata. Known for its comforting soul food, delicious pancakes, pizzas, burgers and signature café beverages, Marbella's offers the perfect spot for a relaxing brunch, coffee date or evening meal.</p>
-                <p>Whether you are stopping by for a quiet latte or enjoying a vibrant evening with friends, Marbella's delivers warm hospitality and a delightful dining experience.</p>
-            </div>
-            <!-- Placeholder image for the cafe interior -->
-            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2071&auto=format&fit=crop" alt="Marbella's Cafe Interior" class="about-img">
-        </div>
-    </section>
+<div class="logo">Marbella's</div>
 
-    <!-- 3. Popular Menu Highlights -->
-    <section id="menu" class="menu-section">
-        <h2 class="section-title">Popular Highlights</h2>
-        <div class="menu-grid">
-            
-            <div class="menu-category">
-                <h3>Start Here</h3>
-                <div class="menu-item"><h4>Beer Battered Prawns</h4><span class="price">₹625</span></div>
-                <div class="menu-item"><h4>Cheesy Focaccia Sticks</h4><span class="price">₹375</span></div>
-                <div class="menu-item"><h4>Chicken Potstickers</h4><span class="price">₹375</span></div>
-                <div class="menu-item"><h4>Nachos Grande</h4><span class="price">₹350</span></div>
-                <div class="menu-item"><h4>Fish & Chips</h4><span class="price">₹495</span></div>
-            </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#reserve">Reserve</a>
+<a href="#contact">Contact</a>
+</nav>
 
-            <div class="menu-category">
-                <h3>Pancakes & Waffles</h3>
-                <div class="menu-item"><h4>Blueberry & Cream</h4><span class="price">₹375</span></div>
-                <div class="menu-item"><h4>Dark Chocolate & Nutella</h4><span class="price">₹375</span></div>
-                <div class="menu-item"><h4>Nutella & Banana</h4><span class="price">₹375</span></div>
-                <div class="menu-item"><h4>The Classic Pancake</h4><span class="price">₹300</span></div>
-            </div>
+</header>
 
-            <div class="menu-category">
-                <h3>Sandwiches & Burgers</h3>
-                <div class="menu-item"><h4>Beer Battered Fish Burger</h4><span class="price">₹575</span></div>
-                <div class="menu-item"><h4>Southwest Chicken Burger</h4><span class="price">₹485</span></div>
-                <div class="menu-item"><h4>Chicken Bagel Club Sandwich</h4><span class="price">₹475</span></div>
-                <div class="menu-item"><h4>Chipotle Red Bean Burger</h4><span class="price">₹485</span></div>
-            </div>
+<!-- HERO VIDEO -->
 
-            <div class="menu-category">
-                <h3>Main Dishes</h3>
-                <div class="menu-item"><h4>Chicken Khow Suey</h4><span class="price">₹575</span></div>
-                <div class="menu-item"><h4>Grilled Fish</h4><span class="price">₹595</span></div>
-                <div class="menu-item"><h4>Chicken Thai Curry</h4><span class="price">₹495</span></div>
-                <div class="menu-item"><h4>Veg Mexican Bowl</h4><span class="price">₹450</span></div>
-            </div>
+<section class="hero-video">
 
-        </div>
-        <div class="menu-btn-container">
-            <a href="#" class="btn btn-primary">View Full Menu</a>
-        </div>
-    </section>
+<iframe 
+src="https://www.youtube.com/embed/CWdpTdRjuLQ?autoplay=1&mute=1&loop=1&controls=0&playlist=CWdpTdRjuLQ"
+frameborder="0"
+allow="autoplay"
+></iframe>
 
-    <!-- 4. Why People Love Us -->
-    <section id="features">
-        <h2 class="section-title">Why People Love Marbella's</h2>
-        <div class="features-grid">
-            <div class="feature-item"><i class="fa-solid fa-star"></i><p>4.2 Google Rating</p></div>
-            <div class="feature-item"><i class="fa-solid fa-pizza-slice"></i><p>Delicious Pizza & Pasta</p></div>
-            <div class="feature-item"><i class="fa-solid fa-mug-hot"></i><p>Cozy Café Atmosphere</p></div>
-            <div class="feature-item"><i class="fa-solid fa-utensils"></i><p>Fresh Soul Food</p></div>
-            <div class="feature-item"><i class="fa-solid fa-face-smile"></i><p>Friendly Staff</p></div>
-            <div class="feature-item"><i class="fa-solid fa-location-dot"></i><p>Prime Location in Golpark</p></div>
-        </div>
-        <div class="review-quote">
-            "People love Marbella's for its tasty dishes, cozy ambiance, and friendly staff. Many visitors highlight the delicious pizza, pasta, pancakes and hot chocolate."
-        </div>
-    </section>
+</section>
 
-    <!-- 5. Order Online -->
-    <section id="order" class="order-section">
-        <h2 class="section-title">Order Online</h2>
-        <div class="order-grid">
-            <div class="order-card">
-                <h3 class="zomato-brand">Zomato</h3>
-                <p style="margin-bottom: 2rem;">Order Marbella's on Zomato</p>
-                <a href="https://www.zomato.com/kolkata/marbellas-1-hindustan-park/order?v=o2" target="_blank" class="btn btn-primary">Order Now</a>
-            </div>
-            <div class="order-card">
-                <h3 class="swiggy-brand">Swiggy</h3>
-                <p style="margin-bottom: 2rem;">Get Marbella's delivered via Swiggy</p>
-                <a href="https://www.swiggy.com/city/kolkata/marbella%27s-hindustan-park-south-kolkata-rest297113" target="_blank" class="btn btn-primary">Order Now</a>
-            </div>
-        </div>
-    </section>
+<!-- HERO TEXT -->
 
-    <!-- 6 & 7. Reserve a Table & Hours -->
-    <section id="reserve">
-        <h2 class="section-title">Visit Us</h2>
-        <div class="reserve-hours-grid">
-            
-            <!-- Reservation Form -->
-            <div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Reserve a Table</h3>
-                <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been received.');">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Number of Guests" min="1" required>
-                    </div>
-                    <div class="form-group" style="display: flex; gap: 1rem;">
-                        <input type="date" class="form-control" required>
-                        <input type="time" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-accent" style="width: 100%;">Reserve Now</button>
-                </form>
-            </div>
+<section class="hero-text">
 
-            <!-- Opening Hours -->
-            <div class="hours-box">
-                <h3>Opening Hours</h3>
-                <p style="font-weight: 500; margin-bottom: 0.5rem;">Monday – Sunday</p>
-                <p style="font-family: var(--font-price); font-size: 1.5rem;">10:30 AM – 11:00 PM</p>
-                <div style="margin-top: 2rem;">
-                    <i class="fa-regular fa-clock" style="font-size: 3rem; color: var(--accent); opacity: 0.5;"></i>
-                </div>
-            </div>
-            
-        </div>
-    </section>
+<h1>Quaint European Café Experience in Kolkata</h1>
 
-    <!-- 8. Location & Contact -->
-    <section id="contact">
-        <div class="contact-grid">
-            <div>
-                <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Location & Contact</h2>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-map-location-dot"></i> <span>29A, opposite Abin Design Studio<br>Golpark, Hindustan Park, Gariahat<br>Kolkata, West Bengal 700029</span></p>
-                    <p><i class="fa-solid fa-phone"></i> <span>098319 03353</span></p>
-                </div>
-                <div class="contact-buttons">
-                    <a href="tel:09831903353" class="btn btn-primary">Call Now</a>
-                    <a href="https://share.google/rAksBMmtyyQ1LgD6x" target="_blank" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Get Directions</a>
-                    <a href="https://wa.me/919831903353" target="_blank" class="btn" style="background: #25D366; color: white;">WhatsApp</a>
-                </div>
-            </div>
-            <!-- Google Map Embed Placeholder using an iframe for realistic rendering -->
-            <div style="width: 100%; height: 350px; background: #ddd; border-radius: 10px; overflow: hidden;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.2657754593845!2d88.3619551!3d22.5165689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02713f8d6824ab%3A0xe5a3bb40608fa8ff!2sMarbella&#39;s!5e0!3m2!1sen!2sin!4v1698224534567!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+<p>
+Home-grown, glass-enclosed café serving soul food, pancakes, burgers and comforting global dishes.
+</p>
 
-    <!-- 9. Reviews Section -->
-    <section id="reviews" class="reviews-section">
-        <h2 class="section-title">What the Web Says</h2>
-        <div class="review-cards">
-            <div class="r-card">
-                <h4>Google</h4>
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
-                <p><strong>4.2</strong> (3,073 reviews)</p>
-            </div>
-            <div class="r-card">
-                <h4>Zomato</h4>
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
-                <p><strong>4.2 / 5</strong> (1,678 votes)</p>
-            </div>
-            <div class="r-card">
-                <h4>Facebook</h4>
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p><strong>4.9 / 5</strong></p>
-            </div>
-            <div class="r-card">
-                <h4>EazyDiner</h4>
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
-                <p><strong>4.3 /
+<div class="hero-buttons">
+
+<a href="#reserve" class="btn">Reserve Table</a>
+
+<a href="#menu" class="btn">View Menu</a>
+
+<a href="#order" class="btn">Order Online</a>
+
+</div>
+
+<div class="rating">
+⭐ 4.2 Google Rating (3,073 Reviews)
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+<h2>About Marbella's</h2>
+
+<p>
+Marbella's is a cozy European-inspired café located in Hindustan Park, Kolkata.
+Known for its comforting soul food, delicious pancakes, burgers, flatbreads and global café dishes,
+Marbella's offers the perfect space for brunch, coffee dates and relaxed evenings.
+</p>
+
+</section>
+
+<!-- FEATURED DISHES -->
+
+<section id="menu" class="menu">
+
+<h2>Featured Dishes</h2>
+
+<div class="menu-grid">
+
+<div class="card">
+<img src="images/prawns.jpg">
+<h3>Beer Battered Prawns</h3>
+<span>₹625</span>
+</div>
+
+<div class="card">
+<img src="images/nachos.jpg">
+<h3>Nachos Grande</h3>
+<span>₹350</span>
+</div>
+
+<div class="card">
+<img src="images/fishchips.jpg">
+<h3>Fish & Chips</h3>
+<span>₹495</span>
+</div>
+
+<div class="card">
+<img src="images/khow.jpg">
+<h3>Chicken Khow Suey</h3>
+<span>₹575</span>
+</div>
+
+<div class="card">
+<img src="images/grilledfish.jpg">
+<h3>Grilled Fish</h3>
+<span>₹595</span>
+</div>
+
+<div class="card">
+<img src="images/pancakes.jpg">
+<h3>Nutella & Banana Pancakes</h3>
+<span>₹375</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- ORDER ONLINE -->
+
+<section id="order" class="order">
+
+<h2>Order Online</h2>
+
+<div class="order-grid">
+
+<div class="order-card">
+
+<h3>Zomato</h3>
+
+<p>Order Marbella's from Zomato</p>
+
+<a href="https://www.zomato.com/kolkata/marbellas-1-hindustan-park/order?v=o2" class="btn">Order Now</a>
+
+</div>
+
+<div class="order-card">
+
+<h3>Swiggy</h3>
+
+<p>Order Marbella's from Swiggy</p>
+
+<a href="https://www.swiggy.com/city/kolkata/marbella%27s-hindustan-park-south-kolkata-rest297113" class="btn">Order Now</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESERVATION -->
+
+<section id="reserve" class="reserve">
+
+<h2>Reserve a Table</h2>
+
+<form action="https://formspree.io/f/xdawazja" method="POST">
+
+<input type="text" name="name" placeholder="Name" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<input type="date" name="date" required>
+
+<input type="time" name="time" required>
+
+<input type="number" name="guests" placeholder="Guests" required>
+
+<textarea name="message" placeholder="Message"></textarea>
+
+<button type="submit">Reserve Table</button>
+
+</form>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" class="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="images/cafe1.jpg">
+
+<img src="images/coffee.jpg">
+
+<img src="images/pancake.jpg">
+
+<img src="images/burger.jpg">
+
+<img src="images/flatbread.jpg">
+
+<img src="images/dessert.jpg">
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact & Location</h2>
+
+<p>
+29A, opposite Abin Design Studio  
+Golpark, Hindustan Park, Gariahat  
+Kolkata, West Bengal 700029
+</p>
+
+<p>Phone: 098319 03353</p>
+
+<div class="contact-buttons">
+
+<a href="tel:9831903353" class="btn">Call Now</a>
+
+<a href="https://wa.me/919831903353" class="btn">WhatsApp</a>
+
+<a href="https://share.google/rAksBMmtyyQ1LgD6x" class="btn">Get Directions</a>
+
+</div>
+
+<iframe
+src="https://maps.google.com/maps?q=marbellas%20kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© Marbella's Café Kolkata</p>
+
+<div class="social">
+
+<a href="#">Instagram</a>
+
+<a href="#">Facebook</a>
+
+</div>
+
+</footer>
+
+<!-- FLOATING BUTTONS -->
+
+<a href="https://wa.me/919831903353" class="whatsapp">WhatsApp</a>
+
+<a href="tel:9831903353" class="call">Call</a>
+
+</body>
+</html>
